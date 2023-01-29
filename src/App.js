@@ -10,8 +10,7 @@ import jwt_decode from "jwt-decode";
 // import PinInfo from "./components/PinInfo";
 // import Settings from "/components/Settings";
 
-function App() {}
-
+function App() {
   const testBackendRequest = async () => {
     const indexPage = await axios.get("http://localhost:5000");
     debugger;
