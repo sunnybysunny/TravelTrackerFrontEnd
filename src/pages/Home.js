@@ -21,7 +21,7 @@ function Home() {
       const userInfo = res.data;
 
       const userLoginResult = await axios.get(
-        `${process.env.REACT_APP_BACKEND_URL_DEV}/login`,
+        `${process.env.REACT_APP_BACKEND_URL}/login`,
         {
           // variables/params for user sub and name, can make these proptypes so they can be used profile?
           params: {
@@ -36,10 +36,6 @@ function Home() {
         sub: userInfo.sub,
       };
       navigate("/Profiles/profile_id", { state: Data });
-
-      // const toProfile =()=> {navigate('/Profile',{params:{name:'userInfo.given_name',sub:'userInfo.sub'}});}
-
-      // const toProfile =()=> {navigate('/Profile',{state:{name:userLoginResult.data}});}
 
       // userLoginResult.data.profile pass this to profile.js in order to render profile info on page
 
