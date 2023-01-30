@@ -21,7 +21,7 @@ function Home() {
       const userInfo = res.data;
 
       const userLoginResult = await axios.get(
-        `${process.env.REACT_APP_BACKEND_URL_DEV}/login`,
+        `${process.env.REACT_APP_BACKEND_URL}/login`,
         {
           // variables/params for user sub and name, can make these proptypes so they can be used profile?
           params: {
