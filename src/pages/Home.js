@@ -37,10 +37,6 @@ function Home() {
       };
       navigate("/Profiles/profile_id", { state: Data });
 
-      // const toProfile =()=> {navigate('/Profile',{params:{name:'userInfo.given_name',sub:'userInfo.sub'}});}
-
-      // const toProfile =()=> {navigate('/Profile',{state:{name:userLoginResult.data}});}
-
       // userLoginResult.data.profile pass this to profile.js in order to render profile info on page
 
       console.log(res.data);

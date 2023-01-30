@@ -12,7 +12,7 @@ const Profile = () => {
 
   return (
     <h1>
-      HII {data.name} {data.sub}
+      Travel Adventures of {data.name}
     </h1>
   );
 
