@@ -59,7 +59,7 @@ function Home() {
       <h3 className="welcomeHeader">WELCOME TO</h3>
       <h1 className="PushPinMapHeader">PUSH PIN MAP</h1>
       <h6 className="ExplinationHeader">
-        WHERE TRAVLERS TRACK THERE ADVENTURES!
+        WHERE TRAVELERS TRACK THEIR ADVENTURES!
       </h6>
 
       {content}
