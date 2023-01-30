@@ -5,7 +5,6 @@ import { useGoogleLogin } from "@react-oauth/google";
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 
-
 function Home() {
   const navigate = useNavigate();
   const getUserInfo = async (access_token) => {
@@ -27,36 +26,26 @@ function Home() {
           // variables/params for user sub and name, can make these proptypes so they can be used profile?
           params: {
             name: userInfo.given_name,
-            sub: userInfo.sub, 
+            sub: userInfo.sub,
           },
         }
       );
+
+      const Data = {
+        name: userInfo.given_name,
+        sub: userInfo.sub,
+      };
+      navigate("/Profiles/profile_id", { state: Data });
 
       // const toProfile =()=> {navigate('/Profile',{params:{name:'userInfo.given_name',sub:'userInfo.sub'}});}
 
       // const toProfile =()=> {navigate('/Profile',{state:{name:userLoginResult.data}});}
 
-      const item = () => {
-        const nav = useNavigate();
-
-      const Data = {
-        name: userInfo.given_name,
-        sub: userInfo.sub
-      };
-
-      <div onClick={() => {
-        nav("/Profile", { state:Data});
-       }}>Clickme
-       </div>
-       }
-
-
-
       // userLoginResult.data.profile pass this to profile.js in order to render profile info on page
 
       console.log(res.data);
-      console.log(userLoginResult); //pass down 
-      navigate("/profiles/profile_id");
+      console.log(userLoginResult); //pass down
+      // navigate("/profiles/profile_id");
     } catch (err) {
       console.log(err);
     }
@@ -68,12 +57,6 @@ function Home() {
     },
   });
 
-  let content = (
-    <button className="GoogleSignInButton" onClick={googleSignIn}>
-      Sign In With Google
-    </button>
-  );
-
   return (
     <div className="App">
       <header className="App-header"></header>
@@ -82,8 +65,17 @@ function Home() {
       <h6 className="ExplinationHeader">
         WHERE TRAVELERS TRACK THEIR ADVENTURES!
       </h6>
-
-      {content}
+      <button className="GoogleSignInButton" onClick={googleSignIn}>
+        Sign In With Google
+      </button>
+      {/* <div onClick={() => {
+          const Data = {
+            name: userInfo.given_name,
+            sub: userInfo.sub
+          };
+          navigate("/Profile", { state:Data});
+        }}>Clickme
+        </div> */}
     </div>
   );
 }
