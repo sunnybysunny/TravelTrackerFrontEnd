@@ -3,7 +3,8 @@ import "./Home.css";
 import axios from "axios";
 import { useGoogleLogin } from "@react-oauth/google";
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+
 
 function Home() {
   const navigate = useNavigate();
@@ -21,20 +22,40 @@ function Home() {
       const userInfo = res.data;
 
       const userLoginResult = await axios.get(
-        `${process.env.REACT_APP_BACKEND_URL}/login`,
+        `${process.env.REACT_APP_BACKEND_URL_DEV}/login`,
         {
           // variables/params for user sub and name, can make these proptypes so they can be used profile?
           params: {
             name: userInfo.given_name,
-            sub: userInfo.sub,
+            sub: userInfo.sub, 
           },
         }
       );
 
+      // const toProfile =()=> {navigate('/Profile',{params:{name:'userInfo.given_name',sub:'userInfo.sub'}});}
+
+      // const toProfile =()=> {navigate('/Profile',{state:{name:userLoginResult.data}});}
+
+      const item = () => {
+        const nav = useNavigate();
+
+      const Data = {
+        name: userInfo.given_name,
+        sub: userInfo.sub
+      };
+
+      <div onClick={() => {
+        nav("/Profile", { state:Data});
+       }}>Clickme
+       </div>
+       }
+
+
+
       // userLoginResult.data.profile pass this to profile.js in order to render profile info on page
 
       console.log(res.data);
-      console.log(userLoginResult);
+      console.log(userLoginResult); //pass down 
       navigate("/profiles/profile_id");
     } catch (err) {
       console.log(err);
