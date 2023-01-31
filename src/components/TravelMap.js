@@ -1,9 +1,10 @@
 import React, { useState, useMemo } from "react";
 import PropTypes from "prop-types";
+import { GoogleMap } from "@react-google-maps/api";
 
-import "./GoogleMap.css";
+import "./TravelMap.css";
 
-function GoogleMap() {
+function TravelMap() {
   const center = useMemo(() => ({ lat: 51, lng: -108.35 }), []);
 
   return (
@@ -15,4 +16,4 @@ function GoogleMap() {
   );
 }
 
-export default GoogleMap;
+export default TravelMap;

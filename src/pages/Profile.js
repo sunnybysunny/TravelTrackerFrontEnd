@@ -1,5 +1,5 @@
 import "./Profile.css";
-import GoogleMap from "../components/GoogleMap";
+import TravelMap from "../components/TravelMap";
 import axios from "axios";
 import { useGoogleLogin } from "@react-oauth/google";
 import React, { useState, useMemo } from "react";
@@ -22,7 +22,7 @@ function Profile() {
   return (
     <div>
       <h1>Travel Adventures of {data.name}</h1>
-      <GoogleMap />
+      <TravelMap />
     </div>
   );
 }
