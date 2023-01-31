@@ -1,33 +1,41 @@
-import "./Home.css";
+import "./Profile.css";
 import axios from "axios";
 import { useGoogleLogin } from "@react-oauth/google";
-import React, { useState } from "react";
+import React, { useState, useMemo } from "react";
 import { useLocation } from "react-router-dom";
+import { GoogleMap, useJsApiLoader, Marker } from "@react-google-maps/api";
 
-const Profile = () => {
+function Profile() {
   const location = useLocation();
-
   const data = location.state;
   console.log(data);
 
-  return (
-    <h1>
-      Travel Adventures of {data.name}
-    </h1>
-  );
+  const { isLoaded } = useJsApiLoader({
+    id: "google-map-script",
+    googleMapsApiKey: `${process.env.REACT_APP_GOOGLE_MAPS_API_KEY}`,
+  });
 
-  //   import { useLocation } from 'react-router-dom';
-  // const Profile = () =>{
-  // const location = useLocation();
-  // //the data here will be an object since an object was
-  // const data = location.state;
-  // console.log(data);
-  // <p>data.name</p>
-  // <p>data.phoneNumber</p>
-  // }
-  // make sure to put these componenets in order of how you want them to render on the page
-  // example below shows how to add them
-  // return <GoogleMap />;
-};
+  if (!isLoaded) {
+    return <div>Loading...</div>;
+  }
+  return (
+    <div>
+      <h1>Travel Adventures of {data.name}</h1>
+      <Map />
+    </div>
+  );
+}
+
+function Map() {
+  const center = useMemo(() => ({ lat: 51, lng: -108.35 }), []);
+
+  return (
+    <GoogleMap
+      zoom={3}
+      center={center}
+      mapContainerClassName="map-container"
+    ></GoogleMap>
+  );
+}
 
 export default Profile;
