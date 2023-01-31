@@ -1,9 +1,10 @@
 import "./Profile.css";
+import GoogleMap from "../components/GoogleMap";
 import axios from "axios";
 import { useGoogleLogin } from "@react-oauth/google";
 import React, { useState, useMemo } from "react";
 import { useLocation } from "react-router-dom";
-import { GoogleMap, useJsApiLoader, Marker } from "@react-google-maps/api";
+import { useJsApiLoader, Marker } from "@react-google-maps/api";
 
 function Profile() {
   const location = useLocation();
@@ -21,20 +22,8 @@ function Profile() {
   return (
     <div>
       <h1>Travel Adventures of {data.name}</h1>
-      <Map />
+      <GoogleMap />
     </div>
-  );
-}
-
-function Map() {
-  const center = useMemo(() => ({ lat: 51, lng: -108.35 }), []);
-
-  return (
-    <GoogleMap
-      zoom={3}
-      center={center}
-      mapContainerClassName="map-container"
-    ></GoogleMap>
   );
 }
 
