@@ -13,6 +13,10 @@ function Profile() {
   const data = location.state;
   console.log(data);
 
+  const [addPinPopup, setAddPinPopup] = useState(false); 
+  const [settingsPopup, setSettingsPopup] = useState(false);
+
+
   const { isLoaded } = useJsApiLoader({
     id: "google-map-script",
     googleMapsApiKey: `${process.env.REACT_APP_GOOGLE_MAPS_API_KEY}`,
@@ -24,8 +28,10 @@ function Profile() {
   return (
     <div>
       <h1>Travel Adventures of {data.name}</h1>
-      <button onClick = {AddPin} type="submit">Add Pin</button>
-      <Settings/>
+      <button onClick={()=> setAddPinPopup(true)}>Add Pin</button>
+      <AddPin trigger={addPinPopup} setTrigger={setAddPinPopup} />
+      <button onClick={()=> setSettingsPopup(true)}>Settings</button>
+      <Settings trigger={settingsPopup} setTrigger={setSettingsPopup}/>
       <TravelMap />
     </div>
   );
@@ -33,5 +39,3 @@ function Profile() {
 
 export default Profile;
 
-
-// imported some buttons from pin and settings 

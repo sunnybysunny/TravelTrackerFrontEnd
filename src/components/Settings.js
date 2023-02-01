@@ -1,12 +1,22 @@
 import React from "react";
 import PropTypes from "prop-types";
-
 import "./Settings.css";
 
-function Settings() {
-  return <button className="ProfileButton">Settings</button>;
+
+function Settings(props){
+  return(props.trigger) ? (
+    <div classname="popup">
+      <popup className="popup-inner">
+        <button className="close-btn" onClick={() => props.setTrigger(false)}>close</button>
+        <button>Dark Mode</button>
+        <button>Light Mode</button>
+        <button>Delete Profile</button>
+        {props.children}
+      </popup>
+    </div>
+  ): "";
 }
 
 export default Settings;
 
-// Shelby, I changed MainPage to Settings not sure if accidentally left it as MainPage or if it was intentional
+
