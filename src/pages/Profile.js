@@ -1,5 +1,7 @@
 import "./Profile.css";
 import TravelMap from "../components/TravelMap";
+import AddPin from "../components/AddPin";
+import Settings from "../components/Settings";
 import axios from "axios";
 import { useGoogleLogin } from "@react-oauth/google";
 import React, { useState, useMemo } from "react";
@@ -22,6 +24,8 @@ function Profile() {
   return (
     <div>
       <h1>Travel Adventures of {data.name}</h1>
+      <AddPin/>
+      <Settings/>
       <TravelMap />
     </div>
   );

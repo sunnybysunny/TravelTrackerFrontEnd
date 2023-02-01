@@ -1,10 +1,12 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-import "./MainPage.css";
+import "./Settings.css";
 
-function MainPage() {
-  return <button className="ProfileButton"></button>;
+function Settings() {
+  return <button className="ProfileButton">Settings</button>;
 }
 
-export default MainPage;
+export default Settings;
+
+// Shelby, I changed MainPage to Settings not sure if accidentally left it as MainPage or if it was intentional
