@@ -24,7 +24,7 @@ function Profile() {
   return (
     <div>
       <h1>Travel Adventures of {data.name}</h1>
-      <AddPin/>
+      <button onClick = {AddPin} type="submit">Add Pin</button>
       <Settings/>
       <TravelMap />
     </div>
@@ -32,3 +32,6 @@ function Profile() {
 }
 
 export default Profile;
+
+
+// imported some buttons from pin and settings 
