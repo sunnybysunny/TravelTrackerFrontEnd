@@ -1,7 +1,7 @@
 
 /* Popup container - can be anything you want */
 .popup {
-  position: absolute;
+  /* position: absolute;
   top: 0;
   left: 0;
   width: 300px;
@@ -10,14 +10,14 @@
   display: flex; 
   justify-content: center;
   align-items: center;
-  z-index: 100;
+  z-index: 100; */
   
 }
 
-.popup-inner {
-    position: relative;
+.popup-content  {
+    /* position: relative; */
     padding: 32px; 
-    width: 100%; 
+    /* width: 100%;  */
     background-color: rgb(241, 153, 153); 
 }
 

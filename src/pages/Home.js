@@ -31,9 +31,14 @@ function Home() {
         }
       );
 
+      const profile = userLoginResult.data.profile;
+      const pins = userLoginResult.data.pins;
+
       const Data = {
-        name: userInfo.given_name,
-        sub: userInfo.sub,
+        id: profile.id,
+        name: profile.name,
+        sub: profile.sub,
+        pins: pins,
       };
       navigate("/Profiles/profile_id", { state: Data });
 
