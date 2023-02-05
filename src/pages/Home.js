@@ -63,11 +63,18 @@ function Home() {
       <header className="App-header"></header>
       <h3 className="welcomeHeader">WELCOME TO</h3>
       <h1 className="PushPinMapHeader">PUSH PIN MAP</h1>
+      <img
+        className="GoogleMarker"
+        src="GoogleMarkerMini.png"
+        width="60"
+        height="100"
+        alt="Google Pin"
+      />
       <h6 className="ExplinationHeader">
         WHERE TRAVELERS TRACK THEIR ADVENTURES!
       </h6>
       <button className="GoogleSignInButton" onClick={googleSignIn}>
-        <img src="google.png" width="45" height="30" alt="google logo"></img>
+        <img src="google.png" width="50" height="30" alt="google logo"></img>
         <span className="SignInText">Sign in with Google</span>
       </button>
       {/* <div onClick={() => {
