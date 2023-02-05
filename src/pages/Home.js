@@ -67,7 +67,8 @@ function Home() {
         WHERE TRAVELERS TRACK THEIR ADVENTURES!
       </h6>
       <button className="GoogleSignInButton" onClick={googleSignIn}>
-        Sign In With Google
+        <img src="google.png" width="45" height="30" alt="google logo"></img>
+        <span className="SignInText">Sign in with Google</span>
       </button>
       {/* <div onClick={() => {
           const Data = {

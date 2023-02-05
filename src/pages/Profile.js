@@ -10,7 +10,6 @@ function Profile() {
   const data = location.state;
   console.log(data);
 
-  const [settingsPopup, setSettingsPopup] = useState(false);
   const [pins, setPins] = useState(data.pins);
   const renderNewPin = (pin) => {
     pins.push(pin);
@@ -21,8 +20,7 @@ function Profile() {
     <div>
       <h1>Travel Adventures of {data.name}</h1>
       <AddPin profileId={data.id} addPinHandler={renderNewPin} />
-      <button onClick={() => setSettingsPopup(true)}>Settings</button>
-      <Settings trigger={settingsPopup} setTrigger={setSettingsPopup} />
+      <Settings profileId={data.id} />
       <TravelMap pins={pins} />
     </div>
   );

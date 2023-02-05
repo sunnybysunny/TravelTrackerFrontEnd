@@ -1,0 +1,53 @@
+body {
+    background-image: url("./../../public/BackgroundHomePage_PP.JPG");
+}
+
+
+
+.App {
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+    margin-top: 200px;
+}
+
+.welcomeHeader {
+    color: #134e7d;
+    font-size: 50px;
+    font-weight: bolder;
+    margin: 10px;
+}
+
+.PushPinMapHeader {
+    color: #a3c0d7;
+    font-size: 100px;
+    font-weight: bolder;
+    background-color: #134e7d;
+    display: inline;
+    padding: 0px 40px;
+    margin: 15px;
+}
+
+.ExplinationHeader{
+    color: #134e7d;
+    font-size: 20px;
+    font-weight: bolder;
+    margin: 15px;
+}
+
+.GoogleSignInButton{
+    margin-top: 100px;
+    background-color: #f8f8f8;
+    border-style:ridge;
+    border-color: lightslategray;
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+    color: #1b67a6;
+    font-weight: bolder;
+    font-size: 15px;
+    padding-right: 15px;
+    vertical-align: middle;
+}
+
+button img{
+position: relative;
+}
