@@ -59,7 +59,7 @@ function Home() {
   });
 
   return (
-    <div className="App">
+    <div className="App home">
       <header className="App-header"></header>
       <h3 className="welcomeHeader">WELCOME TO</h3>
       <h1 className="PushPinMapHeader">PUSH PIN MAP</h1>
