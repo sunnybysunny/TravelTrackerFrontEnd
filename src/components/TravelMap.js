@@ -7,6 +7,7 @@ import {
   useJsApiLoader,
 } from "@react-google-maps/api";
 import Moment from "moment";
+import axios from "axios";
 
 import "./TravelMap.css";
 
@@ -27,7 +28,6 @@ function TravelMap(props) {
     setOpenedPin(id);
   };
 
-  const removePin = (id) => {};
 
   const markers = props.pins.map((data) => {
     const position = { lat: data.pin.latitude, lng: data.pin.longitude };
@@ -51,6 +51,20 @@ function TravelMap(props) {
       </MarkerF>
     );
   });
+
+  const removePin = (id) => {
+    axios
+      .delete(`${process.env.REACT_APP_BACKEND_URL}/pins/${id}`
+      )
+      .then((res) => {
+        console.log("pin removed") ; 
+      })
+      .catch((err) => {
+        console.log(err); 
+      });
+  };
+
+  // reset pins on line 60 need to use state 
 
   return (
     <div className="mapOuterContainer">
