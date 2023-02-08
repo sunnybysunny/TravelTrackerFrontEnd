@@ -1,7 +1,5 @@
 .ProfilePage {
-    background-image: url("./../../public/palms.jpg");
-    background-repeat:no-repeat;
-    background-size: cover;
+    background-color: rgb(145, 209, 248);
     width: 100%;
     height: 100%;
 }
