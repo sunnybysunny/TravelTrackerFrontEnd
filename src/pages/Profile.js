@@ -17,8 +17,8 @@ function Profile() {
   };
 
   return (
-    <div>
-      <h1>Travel Adventures of {data.name}</h1>
+    <div className="ProfilePage">
+      <h1 className="ProfileHeader">Travel Adventures of {data.name}</h1>
       <AddPin profileId={data.id} addPinHandler={renderNewPin} />
       <Settings profileId={data.id} />
       <TravelMap pins={pins} />

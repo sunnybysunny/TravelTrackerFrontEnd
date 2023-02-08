@@ -1,5 +1,19 @@
-.map-container{
-    width: 750px;
+.mapOuterContainer {
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+}
+
+.mapInnerContainer{
+    width: 1000px;
     height: 500px;
 }
 
+.PinInfo {
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+}

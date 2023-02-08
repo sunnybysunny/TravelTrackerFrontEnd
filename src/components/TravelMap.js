@@ -1,11 +1,18 @@
 import React, { useState, useMemo } from "react";
 import PropTypes from "prop-types";
-import { GoogleMap, MarkerF, useJsApiLoader } from "@react-google-maps/api";
+import {
+  GoogleMap,
+  InfoWindowF,
+  MarkerF,
+  useJsApiLoader,
+} from "@react-google-maps/api";
+import Moment from "moment";
 
 import "./TravelMap.css";
 
 function TravelMap(props) {
   const center = useMemo(() => ({ lat: 51, lng: -108.35 }), []);
+  const [openedPin, setOpenedPin] = useState(null);
 
   const { isLoaded } = useJsApiLoader({
     id: "google-map-script",
@@ -16,15 +23,45 @@ function TravelMap(props) {
     return <div>Loading...</div>;
   }
 
+  const openPin = (id) => {
+    setOpenedPin(id);
+  };
+
+  const removePin = (id) => {};
+
   const markers = props.pins.map((data) => {
     const position = { lat: data.pin.latitude, lng: data.pin.longitude };
-    return <MarkerF position={position} key={data.pin.id} />;
+    return (
+      <MarkerF
+        position={position}
+        key={data.pin.id}
+        onClick={() => openPin(data.pin.id)}
+      >
+        {openedPin === data.pin.id && (
+          <InfoWindowF>
+            <div className="PinInfo">
+              <span>Location: {data.pin.location_name}</span>
+              <span>
+                Travel Date: {Moment(data.pin.date).format("DD/MM/YYYY")}
+              </span>
+              <button onClick={() => removePin(data.pin.id)}>Remove Pin</button>
+            </div>
+          </InfoWindowF>
+        )}
+      </MarkerF>
+    );
   });
 
   return (
-    <GoogleMap zoom={3} center={center} mapContainerClassName="map-container">
-      {markers}
-    </GoogleMap>
+    <div className="mapOuterContainer">
+      <GoogleMap
+        zoom={3}
+        center={center}
+        mapContainerClassName="mapInnerContainer"
+      >
+        {markers}
+      </GoogleMap>
+    </div>
   );
 }
 

@@ -59,7 +59,7 @@ function Home() {
   });
 
   return (
-    <div className="App">
+    <div className="HomePage">
       <header className="App-header"></header>
       <h3 className="welcomeHeader">WELCOME TO</h3>
       <h1 className="PushPinMapHeader">PUSH PIN MAP</h1>
@@ -77,14 +77,6 @@ function Home() {
         <img src="google.png" width="50" height="30" alt="google logo"></img>
         <span className="SignInText">Sign in with Google</span>
       </button>
-      {/* <div onClick={() => {
-          const Data = {
-            name: userInfo.given_name,
-            sub: userInfo.sub
-          };
-          navigate("/Profile", { state:Data});
-        }}>Clickme
-        </div> */}
     </div>
   );
 }
