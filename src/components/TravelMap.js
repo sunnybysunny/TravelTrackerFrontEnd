@@ -8,12 +8,14 @@ import {
   MapOptions,
 } from "@react-google-maps/api";
 import Moment from "moment";
+import axios from "axios";
 
 import "./TravelMap.css";
 
 function TravelMap(props) {
   const center = useMemo(() => ({ lat: 43.7696, lng: 11.2558 }), []);
   const [openedPin, setOpenedPin] = useState(null);
+  const [allPins, setAllPins] = useState(props.pins);
   const mapStyles = {
     default: [],
     night: [
@@ -229,9 +231,20 @@ function TravelMap(props) {
     setOpenedPin(id);
   };
 
-  const removePin = (id) => {};
+  const removePin = (id) => {
+    axios
+      .delete(`${process.env.REACT_APP_BACKEND_URL}/pins/${id}`)
+      .then(() => {
+        const existingPins = allPins.filter((pin) => pin.id !== id);
+        setAllPins(existingPins);
+      })
+      .catch((err) => {
+        console.log(err);
+        alert("Unable to removed pin");
+      });
+  };
 
-  const markers = props.pins.map((data) => {
+  const markers = allPins.map((data) => {
     const position = { lat: data.pin.latitude, lng: data.pin.longitude };
     return (
       <MarkerF
