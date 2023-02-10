@@ -8,12 +8,16 @@ import { useLocation } from "react-router-dom";
 function Profile() {
   const location = useLocation();
   const data = location.state;
-  console.log(data);
 
   const [pins, setPins] = useState(data.pins);
   const renderNewPin = (pin) => {
     pins.push(pin);
     setPins([...pins]);
+  };
+
+  const removePin = (id) => {
+    const existingPins = pins.filter((pin) => pin.pin.id !== id);
+    setPins([...existingPins]);
   };
 
   return (
@@ -25,7 +29,7 @@ function Profile() {
         addPinHandler={renderNewPin}
       />
       <Settings className="ProfileButtons" profileId={data.id} />
-      <TravelMap pins={pins} />
+      <TravelMap pins={pins} removePinHandler={removePin} />
     </div>
   );
 }

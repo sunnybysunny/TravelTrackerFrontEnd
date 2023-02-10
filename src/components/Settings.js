@@ -38,8 +38,7 @@ const Settings = (props) => {
       </button>
       <br></br>
       <div className="SettingActionButtons">
-        <button className="SetBtn">Dark Mode</button>
-        <button className="SetBtn">Light Mode</button>
+        <button className="SetBtn">Logout</button>
         <button className="SetBtn" onClick={handleDeleteProfile}>
           Delete Profile
         </button>
