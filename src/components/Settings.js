@@ -27,17 +27,23 @@ const Settings = (props) => {
 
   return (
     <Popup
+      className="settings"
       open={formOpen}
-      trigger={<button>Settings</button>}
-      position="right center"
+      trigger={<button className="MainBtn">Settings</button>}
+      position="bottom center"
       onOpen={() => setFormOpen(true)}
     >
       <button className="close-btn" onClick={() => setFormOpen(false)}>
         close
       </button>
-      <button>Dark Mode</button>
-      <button>Light Mode</button>
-      <button onClick={handleDeleteProfile}>Delete Profile</button>
+      <br></br>
+      <div className="SettingActionButtons">
+        <button className="SetBtn">Dark Mode</button>
+        <button className="SetBtn">Light Mode</button>
+        <button className="SetBtn" onClick={handleDeleteProfile}>
+          Delete Profile
+        </button>
+      </div>
     </Popup>
   );
 };

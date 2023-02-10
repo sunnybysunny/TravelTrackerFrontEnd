@@ -42,25 +42,32 @@ const AddPin = (props) => {
 
   return (
     <Popup
+      className="main"
       open={formOpen}
-      trigger={<button>Add Pin</button>}
-      position="right center"
+      trigger={<button className="MainBtn">Add Pin</button>}
+      position="bottom center"
       onOpen={() => setFormOpen(true)}
     >
       <button className="close-btn" onClick={() => setFormOpen(false)}>
         close
       </button>
-      <form className="popup" onSubmit={handleAddPin}>
-        <div className="popup-inner">
-          <label>Location:</label>
-          <input
-            onChange={updateLocation}
-            type="text"
-            placeholder="City, State/Country"
-          />
-          <label>Travel Date:</label>
-          <input onChange={updateDate} type="text" placeholder="dd/mm/yyyy" />
-          <input type="submit" value="Submit" />
+      <br></br>
+      <form onSubmit={handleAddPin}>
+        <div className="PopupInner">
+          <div className="location">
+            <label className="Label">Location</label>
+            <input
+              onChange={updateLocation}
+              type="text"
+              placeholder="City, State/Country"
+            />
+          </div>
+          <div className="Date">
+            <label className="Label">Travel Date</label>
+            <input onChange={updateDate} type="text" placeholder="dd/mm/yyyy" />
+          </div>
+          <input className="Submit" type="submit" value="Submit" />
+
           {props.children}
         </div>
       </form>

@@ -1,28 +1,56 @@
 
 /* Popup container - can be anything you want */
-.popup {
-  /* position: absolute;
-  top: 0;
-  left: 0;
-  width: 300px;
-  height: 100vh; 
 
-  display: flex; 
+.popup-content.main-content{
+  background-color: #dfedf9;
+}
+.close-btn{
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  background-color: #134e7d;
+  color: #f8f8f8;
+  border-style:none;
+  border-color: lightblue;
+  font-weight: bold;
+  font-size: 15px;
+}
+
+.PopupInner{
+  display: inline-block;
+  text-align: center;
+  grid-template-columns: 1fr 1fr 1fr;
+  vertical-align: middle;
   justify-content: center;
-  align-items: center;
-  z-index: 100; */
-  
 }
 
-.popup-content  {
-    /* position: relative; */
-    padding: 32px; 
-    /* width: 100%;  */
-    background-color: rgb(241, 153, 153); 
+.Date{
+  margin-top: 5px;
 }
 
-.popup-inner .close-btn{
-    position: absolute;
-    top: 5px;
-    right: 5px;
+.Submit{
+  margin-top: 10px;
+  margin-bottom: 5px;
+  background-color: #134e7d;
+  color: #f8f8f8;
+  border-style:none;
+  border-color: lightblue;
+  font-weight: bold;
+  font-size: 17px;
+}
+
+.Label{
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: bold;
+  color: #134e7d;
+}
+
+.MainBtn{
+  color: #134e7d;
+  border-style:none;
+  background-color:  #dfedf9;
+  font-weight: bold;
+  font-size: 20px;
+  margin-bottom: 15px;
+  margin-right: 10px;
 }

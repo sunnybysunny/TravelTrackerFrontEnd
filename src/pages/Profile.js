@@ -19,8 +19,12 @@ function Profile() {
   return (
     <div className="ProfilePage">
       <h1 className="ProfileHeader">Travel Adventures of {data.name}</h1>
-      <AddPin profileId={data.id} addPinHandler={renderNewPin} />
-      <Settings profileId={data.id} />
+      <AddPin
+        className="ProfileButtons"
+        profileId={data.id}
+        addPinHandler={renderNewPin}
+      />
+      <Settings className="ProfileButtons" profileId={data.id} />
       <TravelMap pins={pins} />
     </div>
   );

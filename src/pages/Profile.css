@@ -1,10 +1,20 @@
 .ProfilePage {
-    background-color: rgb(145, 209, 248);
+    background-color:#134e7d;
     width: 100%;
     height: 100%;
+    font-family: Arial, Helvetica, sans-serif;
 }
 
 .ProfileHeader {
+    color: #dfedf9;
+    background-color: #134e7d;
     margin: 0 0 10px 0;
-    padding-top: 10px;
+    padding-top: 20px;
+    padding-bottom: 50px;
+    font-size: 50px;
+}
+
+.ProfileButtons{
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #f8f8f8;
 }
