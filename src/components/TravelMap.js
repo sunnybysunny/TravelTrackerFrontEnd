@@ -229,7 +229,7 @@ function TravelMap(props) {
   });
 
   if (!isLoaded) {
-    return <div>Loading...</div>;
+    return <div className="Loading">Loading...</div>;
   }
 
   const openPin = (id) => {
@@ -267,7 +267,12 @@ function TravelMap(props) {
             className="InfoWindow"
             onCloseClick={() => setOpenedPin(null)}
           >
-            <div className="PinInfo">
+            <div
+              className="PinInfo"
+              onBlur={(e) => {
+                setOpenedPin(null);
+              }}
+            >
               <span>Location: {data.pin.location_name}</span>
               <span>
                 Travel Date: {Moment(data.pin.date).format("DD/MM/YYYY")}
