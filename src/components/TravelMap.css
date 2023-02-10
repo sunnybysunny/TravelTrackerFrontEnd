@@ -16,6 +16,8 @@
     align-content: center;
     justify-content: center;
     align-items: center;
+    color: #134e7d;
+    font-weight: bold;
 }
 
 .selector-control{
@@ -24,4 +26,17 @@
     top: 0;
     left: 0;
     margin: 10px;
+}
+
+.RemovePinBtn{
+margin-top: 10px;
+background-color: #134e7d;
+color: #f8f8f8;
+border-style: none;
+border-color: lightblue;
+font-weight: bold;
+}
+
+.InfoWindow{
+    background-color: #dfedf9;
 }

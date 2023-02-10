@@ -263,13 +263,21 @@ function TravelMap(props) {
         onClick={() => openPin(data.pin.id)}
       >
         {openedPin === data.pin.id && (
-          <InfoWindow>
+          <InfoWindow
+            className="InfoWindow"
+            onCloseClick={() => setOpenedPin(null)}
+          >
             <div className="PinInfo">
               <span>Location: {data.pin.location_name}</span>
               <span>
                 Travel Date: {Moment(data.pin.date).format("DD/MM/YYYY")}
               </span>
-              <button onClick={() => removePin(data.pin.id)}>Remove Pin</button>
+              <button
+                className="RemovePinBtn"
+                onClick={() => removePin(data.pin.id)}
+              >
+                Remove Pin
+              </button>
             </div>
           </InfoWindow>
         )}
