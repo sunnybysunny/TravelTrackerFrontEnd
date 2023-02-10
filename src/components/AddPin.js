@@ -35,6 +35,7 @@ const AddPin = (props) => {
       })
       .catch((err) => {
         console.log(err);
+        alert("pin already exists, no duplicate pins allowed");
       });
 
     event.preventDefault();
