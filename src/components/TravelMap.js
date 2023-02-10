@@ -14,6 +14,7 @@ import "./TravelMap.css";
 function TravelMap(props) {
   const center = useMemo(() => ({ lat: 51, lng: -108.35 }), []);
   const [openedPin, setOpenedPin] = useState(null);
+  const [allPins, setAllPins] = useState([props.pins]);
 
   const { isLoaded } = useJsApiLoader({
     id: "google-map-script",
@@ -28,19 +29,20 @@ function TravelMap(props) {
     setOpenedPin(id);
   };
 
-  const removePin = (id, event) => {
+  const removePin = (id) => {
     axios
       .delete(`${process.env.REACT_APP_BACKEND_URL}/pins/${id}`
       )
-      .then((res) => {
-        console.log("pin removed") ; 
+      .then(() => {
+        const existingPins = props.pins.filter((pin) => pin.id !== id);
+        setAllPins(existingPins);
       })
       .catch((err) => {
-        console.log(err); 
+        console.log(err);
+        alert("Unable to removed pin");
       });
   };
 
-  // reset pins on line 60 need to use state
 
   const markers = props.pins.map((data) => {
     const position = { lat: data.pin.latitude, lng: data.pin.longitude };
