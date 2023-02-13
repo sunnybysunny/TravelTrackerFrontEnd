@@ -16,7 +16,7 @@ const Settings = (props) => {
       .delete(
         `${process.env.REACT_APP_BACKEND_URL}/profiles/${props.profileId}`
       )
-      .then((res) => {
+      .then(() => {
         alert("Your profile has been deleted.");
         navigate("/");
       })
@@ -38,7 +38,9 @@ const Settings = (props) => {
       </button>
       <br></br>
       <div className="SettingActionButtons">
-        <button className="SetBtn">Logout</button>
+        <button className="SetBtn" onClick={() => navigate("/")}>
+          Logout
+        </button>
         <button className="SetBtn" onClick={handleDeleteProfile}>
           Delete Profile
         </button>

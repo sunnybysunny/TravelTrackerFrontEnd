@@ -44,3 +44,18 @@ font-weight: bold;
 .Loading{
     color: #f8f8f8;
 }
+
+.locationSelector{
+    font-size: 1em;
+    position: absolute;
+    top: 0;
+    left: 150px;
+    margin: 10px;
+}
+
+.centerMapButton {
+    font-size: 1em;
+    left: 350px;
+    margin: 10px;
+    position: absolute;
+}

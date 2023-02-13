@@ -1,4 +1,4 @@
-import React, { useState, useMemo } from "react";
+import React, { useState, forceUpdate } from "react";
 import {
   GoogleMap,
   InfoWindow,
@@ -11,7 +11,27 @@ import axios from "axios";
 import "./TravelMap.css";
 
 function TravelMap(props) {
-  const center = useMemo(() => ({ lat: 43.7696, lng: 11.2558 }), []);
+  const locations = {
+    NorthAmerica: {
+      center: {
+        lat: 51,
+        lng: -110.35,
+      },
+      zoom: 3.3,
+    },
+    World: {
+      center: {
+        lat: 43.7696,
+        lng: 11.2558,
+      },
+      zoom: 1.7,
+    },
+  };
+
+  const [selectedLocation, setSelectedLocation] = useState(locations.World);
+
+  const [center, setCenter] = useState(selectedLocation.center);
+  const [zoom, setZoom] = useState(selectedLocation.zoom);
   const [openedPin, setOpenedPin] = useState(null);
 
   const mapStyles = {
@@ -221,6 +241,14 @@ function TravelMap(props) {
     mapTypeControl: false,
     gestureHandling: "cooperative",
     styles: mapStyle,
+    restriction: {
+      latLngBounds: {
+        north: 85,
+        south: -85,
+        west: -180,
+        east: 180,
+      },
+    },
   };
 
   const { isLoaded } = useJsApiLoader({
@@ -293,7 +321,7 @@ function TravelMap(props) {
   return (
     <div className="mapOuterContainer">
       <GoogleMap
-        zoom={1.7}
+        zoom={zoom}
         options={options}
         center={center}
         mapContainerClassName="mapInnerContainer"
@@ -307,6 +335,29 @@ function TravelMap(props) {
           <option value="night">Night mode</option>
           <option value="retro">Retro</option>
         </select>
+
+        <select
+          className="locationSelector"
+          onChange={(event) => {
+            const location = locations[event.target.value];
+            setCenter({ ...location.center });
+            setZoom(location.zoom);
+          }}
+          defaultValue="World"
+        >
+          <option value="World">World View</option>
+          <option value="NorthAmerica">North America View</option>
+        </select>
+
+        <button
+          className="centerMapButton"
+          onClick={() => {
+            setCenter({ ...center });
+            setZoom(zoom);
+          }}
+        >
+          Center Map
+        </button>
         {markers}
       </GoogleMap>
     </div>

@@ -13,6 +13,8 @@ function Profile() {
   const renderNewPin = (pin) => {
     pins.push(pin);
     setPins([...pins]);
+    location.state.pins = [...pins];
+    data.pins = [...pins];
   };
 
   const removePin = (id) => {
